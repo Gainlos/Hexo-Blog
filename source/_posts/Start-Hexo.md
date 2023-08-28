@@ -36,7 +36,7 @@ hexo server
 ```bash
 npm install hexo-deployer-git --save
 ```
-2. 修改配置文件
+2. 修改配置文件(./_config.yml)
 ```yml
 deploy:
   type: git
@@ -46,4 +46,48 @@ deploy:
 3. 部署，至此已经实现了一个简单的Github博客，接下来就就可以开始写作了 ([Hexo](https://hexo.io/zh-cn)或者自带的hello-word.md有不错的模板)
 ```bash
 hexo deploy
+```
+# 美化Blog页面
+我选择的是[Ayer](https://github.com/shen-yu/hexo-theme-ayer)主题，主要看重他的简洁直接而富有美感。
+1. 下载主题
+```bash
+npm install hexo-theme-ayer
+```
+2. 修改配置文件(./_config.yml)
+```yml
+theme: hexo-theme-ayer
+```
+3. 复制主题的配置文件(./node_modules/hexo-theme-ayer/_config.yml)至根目录下并改名为_config.ayer.yml
+4. 修改配置文件(./_config.ayer.yml)
+```yml
+# Header
+menu:
+  Home: /
+  Archives: /archives
+  Categories: /categories
+  Tags: /tags
+  About: /about
+```
+5. 为categories和tags创建页面
+```bash
+hexo new page categories
+hexo new page tags
+```
+6. 为archives下载插件
+```bash
+npm install hexo-generator-archive 
+npm install hexo-generator-category
+npm install hexo-generator-tag
+```
+7. 修改配置文件(./_config.yml)
+```yml
+archive_generator:
+  per_page: 0
+  yearly: false
+  monthly: false
+  daily: false
+```
+8. 重新启动server
+```bash
+hexo server
 ```

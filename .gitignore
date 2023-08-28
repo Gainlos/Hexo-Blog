@@ -1,5 +1,4 @@
 node_modules/
-/public/
-/.deploy_git/
-/.github/
-!node_modules/hexo-theme-ayer/
+public/
+.deploy_git/
+.github/
